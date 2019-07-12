@@ -138,6 +138,8 @@ func handle(action string, args *skel.CmdArgs, result *Address) error {
 		return err
 	}
 
+	request.Header.Set("content-type", "application/json")
+
 	response, err := client.Do(request)
 	if err != nil {
 		return err
