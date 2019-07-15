@@ -119,6 +119,10 @@ func handle(action string, args *skel.CmdArgs, result *Address) error {
 		return err
 	}
 
+	if ipamConfig.Mode != COMPATIBLE {
+		ipamConfig.Mode = ""
+	}
+
 	client := &http.Client{}
 
 	kv := PostBody{
