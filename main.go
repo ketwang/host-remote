@@ -17,6 +17,7 @@ import (
 const (
 	REGISTER   = "/register"
 	UNREGISTER = "/unregister"
+	COMPATIBLE = "compatible"
 )
 
 type Net struct {
@@ -29,6 +30,7 @@ type IPAMConfig struct {
 	Name       string
 	Type       string `json:"type"`
 	IPAMServer string `json:"ipam_server"`
+	Mode       string `json:"mode"`
 }
 
 type Address struct {
@@ -45,6 +47,7 @@ type PostBody struct {
 	IfName      string `json:"if_name"`
 	Args        string `json:"args"`
 	Path        string `json:"path"`
+	Mode        string `json:"mode"`
 }
 
 func main() {
@@ -124,6 +127,7 @@ func handle(action string, args *skel.CmdArgs, result *Address) error {
 		IfName:      args.IfName,
 		Args:        args.Args,
 		Path:        args.Path,
+		Mode:        ipamConfig.Mode,
 	}
 
 	content, err := json.Marshal(kv)
