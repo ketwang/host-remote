@@ -1,4 +1,4 @@
-module host-remote
+module github.com/ketwang/host-remote
 
 go 1.12
 
