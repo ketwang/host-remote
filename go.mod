@@ -1,4 +1,4 @@
-module host-remote
+module xiaoyao.io/host-remote
 
 go 1.12
 
